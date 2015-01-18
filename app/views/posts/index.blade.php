@@ -1,10 +1,11 @@
-@extends('layout')
+@extends('layouts.default')
 
 @section('content')
-	<p># of posts: {{ count($posts) }}</p>
-	{{ link_to_action('PostsController@create', 'Create new post') }}
+	<h2>Show posts</h2>
+	# of posts: {{ $posts->count() }}<br>
+	{{ link_to_route('posts.create', 'Create new post') }}<br>
     @foreach($posts as $post)
-        <h4>{{ $post->title, " (", link_to('/posts/'.$post->id, $post->id), ")" }}</h4> 
-        <p>{{ $post->body }}</p>
+        <p><b>{{ link_to_route('posts.show', $post->title, ['id' => $post->id]) }}</b> 
+        {{ $post->body }}<p>
     @endforeach
 @stop

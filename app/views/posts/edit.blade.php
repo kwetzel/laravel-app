@@ -1,6 +1,7 @@
-@extends('layout')
+@extends('layouts.default')
 
 @section('content')
+    <h2>Edit post</h2>
 	{{ Form::model($post,array('action' => array('PostsController@update',$post->id), 'method' => 'put')) }}
     	<div>
     		{{ Form::label('title', 'Title') }}

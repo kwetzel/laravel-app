@@ -1,10 +1,10 @@
-@extends('layout')
+@extends('layouts.default')
 
 @section('content')
-	{{-- link_to_action('PostsController@create', 'Create new post') --}}
+    <h2>Show post</h2>
     <h4>{{ $post->title,
     		" (",
-	    	link_to('posts/'.$post->id.'/edit', 'edit'),
+	    	link_to_route('posts.edit', 'edit', array('id' => $post->id)),
 	    	")"
     	}}</h4
     <p>{{ $post->body }}</p>

@@ -35,7 +35,7 @@ class PostsController extends \BaseController {
 
 		if ($validator->fails())
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+			return Redirect::back()->withErrors($validator->messages())->withInput();
 		}
 
 		Post::create($data);

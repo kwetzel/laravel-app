@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return App::environment();
+	return dd(Post::all());
 	return View::make('hello');
 });
 
