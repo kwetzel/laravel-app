@@ -16,3 +16,5 @@ Route::get('/', function()
 	return App::environment();
 	return View::make('hello');
 });
+
+Route::resource('posts', 'PostsController');
