@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-	return dd(Post::all());
-	return View::make('hello');
-});
+#Route::get('/', function()
+#{
+#	return View::make('hello'); 
+#});
+
+Route::get('/', 'PagesController@Home');
 
 Route::resource('posts', 'PostsController');

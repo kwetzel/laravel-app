@@ -1,14 +1,25 @@
 @extends('layouts.default')
 
 @section('content')
-    <h2>Show post</h2>
-    <h4>{{ $post->title,
-    		" (",
-	    	link_to_route('posts.edit', 'edit', array('id' => $post->id)),
-	    	")"
-    	}}</h4
-    <p>{{ $post->body }}</p>
+    <h1 class="page-header">Show post</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading"><b>{{ $post->title }}</b></div>
+                <div class="panel-body">
+                {{ $post->body }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <p>
+    {{ link_to_route('posts.edit', 'Edit', array('id' => $post->id), array('class' => 'btn btn-primary')) }}
+    </p>
     {{ Form::open(array('route' => array('posts.destroy', $post->id), 'method' => 'delete')) }}
-        <button type="submit" class="btn btn-danger btn-mini">Delete</button>
+        <p>
+        {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+        </p>
     {{ Form::close() }}
 @stop
